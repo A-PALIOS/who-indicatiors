@@ -1,0 +1,88 @@
+####////
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name":"admin",
+    "email":"admin@gmail.com",
+    "password":"123456",
+    "confPassword":"123456",
+    "role":"admin"
+
+}
+
+
+###
+//Login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"123456"
+  
+}
+
+###### Create Indicators ####################
+POST http://localhost:5000/indicators
+Content-Type: application/json
+
+{
+    "indicator_name": "central line-associated bloodstream infection rate",
+    "q4all_Ind_number": "CLABSI-001",
+    "status": "Active",
+    "indicator_cluster": "Infection Prevention",
+    "ind_Merge": "No",
+    "catergory_of_Indicator": "Healthcare-associated infections",
+    "dimension": "Clinical",
+    "type_of_healthcare": "Hospital",
+    "type_of_healthcare_providers_D1_D7": "D1",
+    "cross_Cutting_Dimensions_A_I": "A",
+    "cross_Cutting_Dimensions_Inputs_Process_Outputs": "Inputs",
+    "dimensions_of_Quality_QoCOfficeReport": "Quality",
+    "priority": 1,
+    "data_collection": "Monthly",
+    "collecting_National_Organization": "CDC",
+    "legal_Organizational_Requirements": 1,
+    "proponent_Organization_WG": "HICPAC",
+    "rationale_Description": "To monitor hospital-acquired infections",
+    "objective": "To reduce infection rates",
+    "calculation_Formula": "Infections / Total patient days * 1000",
+    "numerator": "Number of infections",
+    "numerator_Definitions": "Infections occurring in central lines",
+    "denominator": "Total patient days",
+    "denominator_Definitions": "Total number of patient days in the hospital",
+    "target_Population": "All hospital patients with central lines",
+    "field_Topic": "Infection Prevention",
+    "extraCol2": "N/A",
+    "periodicity": "Monthly",
+    "data_Collection_Steps": "Collect data, validate, report",
+    "legal_Requirements": "Yes",
+    "responsible_for_Monitoring": "Infection Control Department",
+    "deadline_Reporting": "End of each month",
+    "supervisor_Body": "Hospital Administration",
+    "management_Entity": "Quality Control",
+    "applicable_period": "2024",
+    "unit_of_Measurement": "Rate per 1000 patient days",
+    "data_Source_Monitoring_Basis": "Hospital Infection Registry",
+    "it_System_Source": "Hospital IT System",
+    "reference_Value_Target": "0.5% infection rate",
+    "base_Value": "0.6% infection rate",
+    "notes": "Monitor closely in ICU",
+    "sources_and_Further_Reading": "CDC Infection Control Guidelines",
+    "selected_indicator": "Yes",
+    "adaptation_Needs": "None",
+    "piloting": "Ongoing",
+    "opinion_from_ODIPY_Other_experts": "Experts agree it is a priority",
+    "pilot_outcome": "Successful",
+    "pilot_success_criteria": "Reduction in infection rates by 10%"
+}
+
+
+###### Update Indicators ####################
+PATCH http://localhost:5000/indicators/1
+Content-Type: application/json
+
+{
+    "indicator_name": "aaaalkska"
+}
