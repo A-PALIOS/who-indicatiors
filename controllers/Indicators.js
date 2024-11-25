@@ -26,6 +26,21 @@ export const getIndicatorsById = async (req, res) => {
     }
 };
 
+// Get a specific indicator by ID with all columns
+export const getIndicatorsByUserId = async (req, res) => {
+    try {
+        const response = await Indicators.findAll({
+            where: { user_Id: req.params.id }
+        });
+        if (!response) return res.status(404).json({ msg: "Indicator not found" });
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}
+
+
+
 // Create a new indicator with all columns
 export const createIndicators = async (req, res) => {
     try {

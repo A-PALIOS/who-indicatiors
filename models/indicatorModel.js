@@ -1,7 +1,9 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
+import Users from "./UserModel.js";
 
 const {DataTypes} = Sequelize;
+
 
 const indicators = db.define('indicators', {
     id: {
@@ -226,5 +228,6 @@ const indicators = db.define('indicators', {
 },{
     freezeTableName: true
 });
+indicators.belongsTo(Users,{foreignKey: {name: 'user_Id',allowNull: true}})
 
 export default indicators;
