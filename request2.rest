@@ -1,0 +1,120 @@
+####Create User ################
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name":"admin",
+    "email":"admin@gmail.com",
+    "password":"123456",
+    "confPassword":"123456",
+    "role":"admin"
+
+}
+
+
+###
+//Login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"123456"
+  
+}
+
+###### Create Indicators ####################
+POST http://localhost:5000/indicators
+Content-Type: application/json
+
+{
+    "indicator_name": "Total Pharmaceuticals",
+    "q4all_Ind_number": "Q4Alln.D_0001",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "dimension": "Financial",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare",
+    "dimensions_of_Quality_QoCOfficeReport": "Financial",
+    "data_collection": "Manual",
+    "collecting_National_Organization": "?",
+    "rationale_Description": "Key",
+    "periodicity": "Monthly"
+}
+
+
+###### Update Indicators ####################
+PATCH http://localhost:5000/indicators/10
+Content-Type: application/json
+
+{
+    "category_of_Indicator": "QoC Romania1"
+}
+
+###### Delete indicator
+DELETE http://localhost:5000/indicators/1
+
+
+
+###### Create Indicators ####################
+POST http://localhost:5000/indicators
+Content-Type: application/json
+
+{
+    "indicator_name": "central line-associated bloodstream infection rate",
+    "q4all_Ind_number": "Q4Alln.0001",
+    "category_of_Indicator": "QoC Romania1",
+    "type_of_healthcare": "Secundary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1",
+    "calculation_Formula": "(Number of CLABSIs in a calendar month / number of central line days in the same month) × 1000",
+    "denominator": "The (TOTAL=?) number of central line days in the same calendar month used for the numerator",
+    "unit_of_Measurement": "??",
+    "it_System_Source": "created by the project and manually loaded information by trained staff",
+    "rationale_Description": "Key",
+    "periodicity": "Monthly"
+}
+
+
+####### Create Indicators ##############
+POST http://localhost:5000/indicators
+Content-Type: application/json
+
+{
+    "indicator_name": "ventilator-associated event rate",
+    "q4all_Ind_number": "Q4Alln.0002",
+    "catergory_of_Indicator": "QoC Romania2",
+    "type_of_healthcare": "Secundary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D2",
+    "calculation_Formula": "(Number of VAEs in a calendar month / Total number of ventilator days in the same month) × 1000",
+    "numerator": "All VAEs over a period of one month",
+    "denominator": "The number of ventilator days in the same calendar month used for the numerator (counting the numbers of patients managed with ventilator devices every day)",
+    "data_Source_Monitoring_Basis": "created by the project and manually loaded information by trained staff"
+}
+
+
+
+####### Create Indicators ##############
+POST http://localhost:5000/indicators
+Content-Type: application/json
+
+{
+    "indicator_name": "percentage of in-hospital patients assessed for fall risk through applied protocols",
+    "q4all_Ind_number": "Q4Alln.0003",
+    "catergory_of_Indicator": "QoC Romania3",
+    "type_of_healthcare": "Secundary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D3",
+    "calculation_Formula": "(Number of patients whose fall risk was fully and properly assessed in a calendar month / Total number of discharged patients in the same month) × 100",
+    "numerator": "All patients whose fall risk was fully and properly assessed through a standardized protocol (such as the Morse Fall Scale) over a period of one month",
+    "denominator": "Total number of discharged patients in the same calendar month used for the numerator",
+    "data_Source_Monitoring_Basis": "created by the project and manually loaded information by trained staff"
+}
+
+####### Create Indicators ##############
+POST http://localhost:5000/indicators_json
+Content-Type: multipart/form-data; boundary=MultipartBoundry
+
+--MultipartBoundry
+Content-Disposition: form-data; name="file"; filename="indicators.json"
+Content-Type: application/json
+
+< ./indicators.json
+--MultipartBoundry--

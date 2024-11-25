@@ -16,7 +16,8 @@ export const Login = async(req,res)=>{
     const email = user.email;
     const role = user.role;
     const profileImage=user.profileImage;
-    res.status(200).json({uuid,name,email,role,profileImage});
+    const id=user.id;
+    res.status(200).json({uuid,name,email,role,profileImage,id});
  
 }
  
@@ -25,7 +26,7 @@ export const Me = async(req,res)=>{
         return res.status(401).json({msg:"please log in to yourt account"});
     }
     const user = await User.findOne({
-        attributes:['uuid','name','email','role','profileImage'],
+        attributes:['uuid','name','email','role','profileImage','id'],
         where:{
             uuid:req.session.userId
         }
