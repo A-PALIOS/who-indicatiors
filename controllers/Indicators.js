@@ -35,6 +35,24 @@ export const createIndicators = async (req, res) => {
         res.status(400).json({ msg: error.message });
     }
 };
+// Create a new indicator with all columns
+export const createIndicatorsJson = async (req, res) => {
+    try {
+        // Parse the JSON data from the uploaded file (req.file is available because of multer)
+        const indicatorsData = JSON.parse(req.file.buffer.toString());
+
+        // Assume indicatorsData is an array of objects to be created
+        for (const data of indicatorsData) {
+            // Create each indicator in the database
+            await Indicators.create(data);
+        }
+
+        res.status(201).json({ msg: "Indicators created successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(400).json({ msg: error.message });
+    }
+};
 
 // Update an existing indicator with all columns
 export const updateIndicators = async (req, res) => {
