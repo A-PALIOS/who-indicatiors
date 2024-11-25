@@ -110,11 +110,11 @@ Content-Type: application/json
 
 ####### Create Indicators ##############
 POST http://localhost:5000/indicators_json
-Content-Type: multipart/form-data
+Content-Type: multipart/form-data; boundary=MultipartBoundry
 
---boundary
+--MultipartBoundry
 Content-Disposition: form-data; name="file"; filename="indicators.json"
 Content-Type: application/json
 
-< .indicators.json
---boundary--
+< ./indicators.json
+--MultipartBoundry--
