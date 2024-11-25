@@ -17,7 +17,7 @@ router.get('/indicatorsByUser/:id',verifyUser, getIndicatorsByUserId);
 router.get('/indicators/:id',verifyUser,adminOnly,getIndicatorsById);
 router.post('/indicators',verifyUser,adminOnly,createIndicators);
 router.post('/indicators_json',verifyUser,adminOnly,uploadJson.single('file'),createIndicatorsJson);
-router.patch('/indicators/:id',verifyUser,adminOnly,updateIndicators);
+router.patch('/indicators/:id',verifyUser,updateIndicators);
 router.delete('/indicators/:id',verifyUser,adminOnly,deleteIndicator);
 
 
