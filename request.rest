@@ -107,3 +107,14 @@ Content-Type: application/json
     "denominator": "Total number of discharged patients in the same calendar month used for the numerator",
     "data_Source_Monitoring_Basis": "created by the project and manually loaded information by trained staff"
 }
+
+####### Create Indicators ##############
+POST http://localhost:5000/indicators_json
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="indicators.json"
+Content-Type: application/json
+
+< .indicators.json
+--boundary--
